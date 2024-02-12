@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CHUZU</title>
+  <link rel="icon" type="image/x-icon" href="/pics/favicon.ico.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&family=Protest+Riot&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&family=Protest+Riot&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="height=device-height, initial-scale=1.0">
+
+  <style>
+    html,
+    body {
+      width: auto;
+      height: auto;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    .title-container {
+      display: flex;
+      position: fixed;
+      background-color: rgba(237, 58, 58, 0.15);
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 20px 10px 10px;
+      z-index: 1;
+      justify-content:space-between;
+    }
+
+    .title-text {
+      margin-top: 10px;
+      font-family: Protest Riot;
+      font-size: 40px;
+      color: white;
+      font-style: italic;
+    }
+
+    .begging-Cat {
+      z-index: 0;
+      width: auto;
+      max-height: 100%;
+    }
+
+    .image-container {
+      height: 220px;
+      position: relative;
+      top: 210px;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: center;
+      margin: 10px 10px 30px 10px;
+    }
+
+    .Question-Container {
+      position: relative;
+      top: 200px;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .Question-text {
+      font-family: Pacifico, Roboto, Arial;
+      font-size: 20px;
+      font-weight: 500;
+      padding-left: 15px;
+      color: white;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    #background-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      display: block;
+      padding: 4px 5px 4px 5px;
+      align-content: center;
+      width: 70px;
+      transform: translate(0px, 0px);
+      border-radius: 30px;
+      border-style: solid;
+      border-width: 3px;
+      border-color: pink;
+      background-color: rgb(254, 58, 58);
+      color: white;
+      cursor: pointer;
+      transition: opacity 0.5s;
+      font-family: Pacifico, Roboto, Arial;
+      box-shadow: 0px 0px 7px 5px rgba(221, 69, 69, 0.4);
+    }
+    button:hover{
+      opacity: 0.4;
+    }
+    .yes-button {
+      margin-right: 100px;
+    }
+
+    .yes-container {
+      z-index: 1;
+      display: block;
+      position: absolute;
+      margin-right: 20px;
+      margin-top: 2px;
+      left: 46%;
+      /* Adjust the left position as needed */
+      top: 79.89%;
+      /* Adjust the top position as needed */
+      transform: translate(-50%, -50%);
+    }
+
+    .no-container {
+      z-index: 1;
+      display: block;
+      position: absolute;
+      margin-right: 20px;
+      margin-top: 2px;
+      left: 58%;
+      /* Adjust the left position as needed */
+      top: 79.89%;
+      /* Adjust the top position as needed */
+      transform: translate(-50%, -50%);
+    }
+
+    .no-button {
+      margin: 0;
+    }
+    .end-text{
+      font-family: Roboto, Arial;
+      font-size: 50PX;
+      color: white;
+      text-shadow: 0 0 10px #FF0000, 0 0 5px #0000FF;
+    }
+    .end-text-container{
+      position: relative;
+      display: none;
+      flex: 1;
+      flex-direction: row;
+      justify-content: center;
+      top: 180px;
+    }
+    .end-text2{
+      font-family: Roboto, Arial;
+      font-size: 50PX;
+      color: white;
+      text-shadow: 0 0 10px #FF0000, 0 0 5px #0000FF;
+    }
+    .end-text2-container{
+      position: relative;
+      display: none;
+      flex: 1;
+      flex-direction: row;
+      justify-content: center;
+      top: 180px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="video-container">
+    <video id="background-video" autoplay muted loop>
+      <source src="Videos/Back-video.mp4"
+        type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="title-container">
+    <div>
+      <p class="title-text">
+        Simo Requester
+      </p>      
+    </div>
+    <div>
+      <img class="title-cat" src="pics/Title-Cat.gif">
+    </div> 
+  </div>
+  <div class="image-container">
+    <img id="CatImage" src="pics/cat-begging3.gif" class="begging-Cat">
+  </div>
+  <div class="Question-Container">
+    <p class="Question-text">
+      Will You be my forever waala Chuzu?
+    </p>
+  </div>
+  <div class="yes-container">
+    <button class="yes-button" onclick="changeCatImage()">
+      Yes
+    </button>
+  </div>
+  <div class="no-container">
+    <button class="no-button" onclick="positionButton()">
+      No
+    </button>
+  </div>
+  <div class="end-text-container">
+    <p id="end-text" class="end-text">
+      YAYYYYYYYYYYYYYYYYYYYYY!!!!!!!!!!!!!!!!
+    </p>
+  </div>
+  <div class="end-text2-container">
+    <p id="end-text2" class="end-text2">
+      THANKUOUUUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!
+    </p>
+  </div>
+  <audio loop id="audio-file" src="Sounds/happy-happy-happy-song.mp3">
+  <audio id="Huh-cat-audio" src="Sounds/ceeday-huh-sound-effect.mp3">
+  <audio id="Cry-audio" src="Sounds/Cry-audio.mp3"></audio>
+  <audio loop id="dance-cat" src="Sounds/Dance-cat-audio.mp3"></audio>
+  <audio loop id="Cry-audio2" src="Sounds/Cry-cat2audio.mp3"></audio>
+  <script>
+    let count = 0;
+    function changeCatImage() {
+      var Button = document.querySelector('button');
+      var Qtext = document.querySelector('.Question-Container');
+      var EndText = document.querySelector('.end-text-container')
+      var NoButton = document.querySelector('.no-button');
+      var catImage = document.getElementById('CatImage');
+      catImage.src = 'pics/happy-happy-happy-happy.gif';
+      var audio = document.getElementById('audio-file');
+      audio.play();
+      Button.style.display = "none";
+      NoButton.style.display = "none";
+      EndText.style.display = "flex";
+      Qtext.style.display = "none";
+      setTimeout(changeCatImage2,7400);
+    }
+    function changeCatImage2(){
+      var audio2 = document.getElementById('audio-file');
+      var catImage = document.getElementById('CatImage');
+      var catCont = document.querySelector('.image-container')
+      catImage.src = 'pics/Dance-cat.gif';
+      catCont.style.height = "500px";
+      catCont.style.top = "50px"
+      catCont.style.margin = "0"
+      catImage.style.width = "300px";
+      catImage.style.height = "500px";
+      var audio = document.getElementById('dance-cat');
+      var EndText = document.querySelector('.end-text-container');
+      var EndText2 = document.querySelector('.end-text2-container');
+      EndText.style.display = "none";
+      EndText2.style.display = "flex";
+      EndText2.style.top = "50px"
+      audio2.pause();
+      audio.play();      
+    }
+    function changeCatImageHuh(){
+      var catImage = document.getElementById('CatImage');
+      catImage.src = 'pics/Huh-Cat-cut.gif';
+    }
+    function playAudioHuh(){
+      var huhAudio = document.getElementById('Huh-cat-audio');
+      huhAudio.play();
+    }
+    function changeCatImageCry(){
+      var catImage = document.getElementById('CatImage');
+      catImage.src = 'pics/Bannana-cat.gif';
+    }
+    function playAudioCry(){
+      var Cryaudio2 = document.getElementById('Cry-audio2');
+      Cryaudio2.pause();
+      var Cryaudio = document.getElementById('Cry-audio');
+      Cryaudio.play();
+    }
+    function changeCatImage3(){
+      var catImage = document.getElementById('CatImage');
+      catImage.src = 'pics/Cry-cat2.gif';      
+    }
+    function playAudioCry2(){
+      var Cryaudio2 = document.getElementById('Cry-audio2');
+      Cryaudio2.play();
+    }
+    function revertCatImage(){
+      var catImage = document.getElementById('CatImage');
+      catImage.src = 'pics/cat-begging3.gif';
+    }
+    function positionButton() {
+      count++;
+      var buttonContainer = document.querySelector('.no-container');
+      var catImage = document.getElementById('CatImage');
+      var imageRect = catImage.getBoundingClientRect();
+      var buttonRect = buttonContainer.getBoundingClientRect();
+
+      // Calculate the maximum allowable positions
+      var maxWidth = window.innerWidth - buttonRect.width;
+      var maxHeight = window.innerHeight - buttonRect.height;
+
+      var newX = Math.floor(Math.random() * maxWidth);
+      var newY = Math.floor(Math.random() * maxHeight);
+
+      // Check if the new position overlaps with the image
+      if (
+        newX < imageRect.right &&
+        newX + buttonRect.width > imageRect.left &&
+        newY < imageRect.bottom &&
+        newY + buttonRect.height > imageRect.top
+      ) {
+        // If it overlaps, shift it to a new position
+        newX = Math.min(newX, imageRect.left - buttonRect.width);
+        newX = Math.max(newX, imageRect.right);
+        newY = Math.min(newY, imageRect.top - buttonRect.height);
+        newY = Math.max(newY, imageRect.bottom);
+      }
+
+      // Update the button container's position
+      buttonContainer.style.left = (newX / window.innerWidth) * 100 + '%';
+      buttonContainer.style.top = (newY / window.innerHeight) * 100 + '%';
+      if(count<5){
+        changeCatImageHuh();
+        playAudioHuh();
+        setTimeout(revertCatImage,600);
+      }
+      if(count >= 5 && count < 7){
+        changeCatImage3();
+        playAudioCry2();
+      } 
+      if(count >= 7 ){
+        changeCatImageCry();
+        playAudioCry();
+      }
+    }
+  </script>
+</body>
+
+</html>
